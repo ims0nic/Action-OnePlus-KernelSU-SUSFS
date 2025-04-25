@@ -198,6 +198,10 @@ jobs:
           echo "CONFIG_DEFAULT_FQ=y" >> ./common/arch/arm64/configs/gki_defconfig 
           echo 'CONFIG_DEFAULT_NET_SCH="fq"' >> ./common/arch/arm64/configs/gki_defconfig
 
+          # Add kernel name
+          sed -i "/stable_scmversion_cmd/s/-maybe-dirty//g" ./build/kernel/kleaf/impl/stamp.bzl
+          sed -i '$s|echo "\$res"|echo "\-android14-s0n1c"|' ./common/scripts/setlocalversion
+          
       - name: Build kernel
         run: |
          cd kernel_workspace

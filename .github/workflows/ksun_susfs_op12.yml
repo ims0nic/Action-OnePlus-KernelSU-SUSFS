@@ -1,4 +1,4 @@
-name: New KernelSU Next SUSFS 12
+name: KSU Next CI
 on:
   workflow_dispatch:
     inputs:
